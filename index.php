@@ -21,7 +21,7 @@ $obj = new System();
 $obj-> setRun();
 
 
-var_dump($obj);//para visualizar os parametros
+//var_dump($obj);//para visualizar os parametros
 
 
 
