@@ -107,6 +107,7 @@ class Slugifier
 
     public function slugify($string)
     {
+    	
         // Make sure string is in UTF-8 and strip invalid UTF-8 characters
         $string = mb_convert_encoding((string) $string, 'UTF-8', mb_list_encodings());
 
