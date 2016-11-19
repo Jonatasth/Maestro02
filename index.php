@@ -5,22 +5,26 @@ include('config.php');
 require_once ('system\system.php');
 require_once ('system\controller.php');
 require_once ('system\model.php');
+//require_once ('controllers\cursos.php');
+//require 'vendor/autoload.php';
 
 
 function __autoload($file){
-	if (file_exists (MODELS . $file . '.php'))
-		require_once (MODELS . $file . '.php');
+	if (file_exists ($file . '.php'))
+		require_once ($file . '.php');
 	else 
-		die('Classe n�o encontrada!');
+		die('Classe não encontrada!');
 }
 
 $obj = new System();
+
 $obj-> setRun();
+
 
 var_dump($obj);//para visualizar os parametros
 
 
-require 'vendor/autoload.php';
+
 /*
 $slugifier = new \Slug\Slugifier();
 

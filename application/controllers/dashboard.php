@@ -1,13 +1,19 @@
 <?php
-namespace Maestro;
+namespace application\controllers;
 
-	class Dashboard extends Controller{
+	class Dashboard extends \Controller{
+	
+		function __contruct(){
+			//die('AQUI');
+		}
+		
 	  public function index(){
-	    $dashboard = new dashboardModel();
+	    $dashboard = new \application\models\dashboardModel();
 	    $dashboard_lista = $dashboard->select();
 	    $data['dashboard'] = $dashboard_lista;
 	    $this->loadView('index', $data);
 	  }   
+	  
 	}
 ?>
 
