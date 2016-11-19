@@ -6,6 +6,30 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit41089668e667f33f545fffe663636a9d
 {
+    public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+            'Zend\\Feed\\' => 10,
+            'Zend\\Escaper\\' => 13,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Zend\\Feed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-feed/src',
+        ),
+        'Zend\\Escaper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-escaper/src',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'S' => 
         array (
@@ -19,6 +43,8 @@ class ComposerStaticInit41089668e667f33f545fffe663636a9d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit41089668e667f33f545fffe663636a9d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit41089668e667f33f545fffe663636a9d::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit41089668e667f33f545fffe663636a9d::$prefixesPsr0;
 
         }, null, ClassLoader::class);
