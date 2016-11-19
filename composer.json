@@ -1,0 +1,14 @@
+{
+    "name": "Maestro",
+    "description": "Sistema de matricula",
+    "authors": [
+        {
+            "name": "Jonatas",
+            "email": "jonatas.1989@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.8",
+        "kevinlebrun/slug.php": "1.*"
+    }
+}
