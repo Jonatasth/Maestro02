@@ -85,7 +85,7 @@ class cursos extends \Controller{
 	
 	public function editar(){
 		
-		$id = parent::getParams() ?? null;
+		$id = parent::getParam('id') ?? null;
 		if($id == null){
 			header('location: cursos/cursos');
 		}
@@ -145,7 +145,7 @@ class cursos extends \Controller{
 			
 			
 			if(count($error) == 0){
-				$cursos->update($dados,$where);
+				$cursosModel->update($dados,$where);
 				header('location: cursos/cursos');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
