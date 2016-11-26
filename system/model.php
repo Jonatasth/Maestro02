@@ -16,14 +16,24 @@
         }
         
         public function read( $where = NULL, $limit = null, $offset = null, $orderby = null) {
-            $where = ($where != null ? "WHERE {$where}" : "");
+        	$where = ($where != null ? "WHERE {$where}" : "");
             $limit = ($limit != null ? "LIMIT {$limit}" : "");
             $offset = ($offset != null ? "OFFSET {$offset}" : "");
             $orderby = ($orderby != null ? "ORDER BY {$orderby}" : "");
             $q = $this->db->query("SELECT * FROM `{$this->_tabela}` {$where} {$orderby} {$limit} {$offset}");
             $q->setFetchMode(PDO::FETCH_ASSOC);
-            return $q->fetchAll();
+            return $q->fetchAll(); //retorna mais de uma linha
         }
+        
+        public function readById($id) {
+        	$sql = "SELECT * FROM `{$this->_tabela}` WHERE id = '$id'";
+        	$q = $this->db->query($sql);
+        	$q->setFetchMode(PDO::FETCH_ASSOC);
+        	return $q->fetch(); //retorna uma linha
+        }
+        
+        
+        
         
         public function update( array $dados, $where) {
             $campos = array();

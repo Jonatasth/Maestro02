@@ -92,8 +92,8 @@ class cursos extends \Controller{
 
 		
 		$cursosModel = new \application\models\cursos_model();
-		$where = "id='$id'";
-		$data = $cursosModel->read($where);
+		
+		$data = $cursosModel->readById($id);
 		
 		if(isset($_POST['submit'])){
 			

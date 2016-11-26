@@ -10,7 +10,7 @@
   	<div class="row">
   	  <div class="form-group col-md-4">
   	  	<label for="titulo">Título do Curso</label>
-  	  	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o Título do Curso" value="<?php echo isset($dados['titulo']) ? $dados['titulo'] : '';?>">
+  	  	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o Título do Curso" value="<?php echo isset($view_titulo) ? $view_titulo : '';?>">
   	  	<?php if(isset($view_error['titulo'])){?>
   	  		<span> <?php echo $view_error['titulo']; ?></span>
   	  	<?php } ?>
@@ -18,7 +18,7 @@
   	  
 	  <div class="form-group col-md-4">
   	  	<label for="descricao">Descrição</label>
-  	  	<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Digite uma breve descrição do curso" value="<?php echo isset($dados['descricao']) ? $dados['descricao'] : '';?>">
+  	  	<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Digite uma breve descrição do curso" value="<?php echo isset($view_descricao) ? $view_descricao : '';?>">
   	    <?php if(isset($view_error['descricao'])){?>
   	  		<span> <?php echo $view_error['descricao']; ?></span>
   	  	<?php } ?>
@@ -26,7 +26,7 @@
   	  
 	  <div class="form-group col-md-4">
   	  	<label for="conteudo">Conteúdo</label>
-  	  	<input type="text" class="form-control" name="conteudo" id="conteudo" placeholder="Digite o Conteúdo" value="<?php echo isset($dados['conteudo']) ? $dados['conteudo'] : '';?>">
+  	  	<input type="text" class="form-control" name="conteudo" id="conteudo" placeholder="Digite o Conteúdo" value="<?php echo isset($view_conteudo) ? $view_conteudo : '';?>">
   	  </div>
   	  <?php if(isset($view_error['conteudo'])){?>
   	  		<span> <?php echo $view_error['conteudo']; ?></span>
@@ -36,7 +36,7 @@
 	<div class="row">
   	  <div class="form-group col-md-3">
   	  	<label for="professor">Professor</label>
-  	  	<input type="text" class="form-control" name="professor" id="professor" placeholder="Digite o nome do Professor" value="<?php echo isset($dados['professor']) ? $dados['professor'] : '';?>">
+  	  	<input type="text" class="form-control" name="professor" id="professor" placeholder="Digite o nome do Professor" value="<?php echo isset($view_professor) ? $view_professor : '';?>">
   	  	<?php if(isset($view_error['professor'])){?>
   	  		<span> <?php echo $view_error['professor']; ?></span>
   	  	<?php } ?>
@@ -44,7 +44,7 @@
   	  
 	  <div class="form-group col-md-3">
   	  	<label for="carga_horaria">Carga Horária</label>
-  	  	<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" placeholder="Digite a carga horária" value="<?php echo isset($dados['carga_horaria']) ? $dados['carga_horaria'] : '';?>">
+  	  	<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" placeholder="Digite a carga horária" value="<?php echo isset($view_carga_horaria) ? $view_carga_horaria : '';?>">
   	  	<?php if(isset($view_error['carga_horaria'])){?>
   	  		<span> <?php echo $view_error['carga_horaria']; ?></span>
   	  	<?php } ?>
@@ -52,7 +52,7 @@
   	  
 	  <div class="form-group col-md-3">
   	  	<label for="lotacao">Lotação</label>
-  	  	<input type="text" class="form-control" name="lotacao" id="lotacao" placeholder="Digite a lotação" value="<?php echo isset($dados['lotacao']) ? $dados['lotacao'] : '';?>">
+  	  	<input type="text" class="form-control" name="lotacao" id="lotacao" placeholder="Digite a lotação" value="<?php echo isset($view_lotacao) ? $view_lotacao : '';?>">
 		<?php if(isset($view_error['lotacao'])){?>
   	  		<span> <?php echo $view_error['lotacao']; ?></span>
   	  	<?php } ?>  	  
@@ -60,7 +60,7 @@
   	  
 	  <div class="form-group col-md-3">
   	  	<label for="data_inicio">Data Início</label>
-  	  	<input type="text" class="form-control" name="data_inicio"  id="data_inicio" placeholder="Digite a data de início do curso" value="<?php echo isset($dados['data_inicio']) ? $dados['data_inicio'] : '';?>">
+  	  	<input type="text" class="form-control" name="data_inicio"  id="data_inicio" placeholder="Digite a data de início do curso" value="<?php echo isset($view_data_inicio) ? $view_data_inicio : '';?>">
   	  	<?php if(isset($view_error['data_inicio'])){?>
   	  		<span> <?php echo $view_error['data_inicio']; ?></span>
   	  	<?php } ?>
@@ -70,7 +70,7 @@
 	<div class="row">
   	  <div class="form-group col-md-6">
   	  	<label for="data_fim">Data Fim</label>
-  	  	<input type="text" class="form-control" name="data_fim" id="data_fim" placeholder="Digite a data do fim do curso" value="<?php echo isset($dados['data_fim']) ? $dados['data_fim'] : '';?>">
+  	  	<input type="text" class="form-control" name="data_fim" id="data_fim" placeholder="Digite a data do fim do curso" value="<?php echo isset($view_data_fim) ? $view_data_fim : '';?>">
 		<?php if(isset($view_error['data_fim'])){?>
   	  		<span> <?php echo $view_error['data_fim']; ?></span>
   	  	<?php } ?>  	  
