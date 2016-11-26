@@ -1,6 +1,10 @@
 <?php
-class Controller extends System{
+class Controller extends \System{
 
+	public function __contruct(){
+		parent::__construct();
+	}
+	
 	protected function loadView($nome, $vars = array()){
 		ob_start();
 		if (is_array($vars) && count($vars) > 0){

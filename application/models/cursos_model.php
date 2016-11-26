@@ -2,12 +2,16 @@
 namespace application\models;
 
 class cursos_model extends \model{
-	public function select(){
+	
+	public function __construct(){
+		parent::__construct();
 		$this->_tabela = "curso";
+	}
+	
+	public function select(){
 		return $this->read(NULL, null, null, 'id ASC');
 	}
 	public  function insert(array $dados){
-		$this->_tabela = "curso";
 		return parent::insert($dados);
 	}
 }

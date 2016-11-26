@@ -10,6 +10,7 @@ class System{
 		$this-> setParteUrl();
 		$this-> setController();
 		$this-> setAction();
+		$this-> setParams();
 	}
 	public function setUrl(){
 		$this->url = (isset($_GET['url']) ? $_GET['url']:'');	
@@ -30,6 +31,14 @@ class System{
 		
 		$action = $this->action;
 		$app->$action();
+	}
+	
+	public function setParams(){
+		$this->params = $this->parteUrl[2];
+	}
+	
+	public function getParams(){
+		return $this->params;
 	}
 }
 ?>
