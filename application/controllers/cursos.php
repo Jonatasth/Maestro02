@@ -69,8 +69,6 @@ class cursos extends \Controller{
 				$dados['data_fim'] = $nova->format('Y-m-d');
 			}
 			
-			
-			
 			if(count($error) == 0){
 				$cursos->insert($dados);
 				header('location: cursos/cursos');
@@ -78,8 +76,7 @@ class cursos extends \Controller{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
 			}
-			
-			
+	
 		}
 		
 		$this->loadView('cursos_formulario', $data);
