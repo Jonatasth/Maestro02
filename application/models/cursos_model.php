@@ -6,9 +6,9 @@ class cursos_model extends \model{
 		$this->_tabela = "curso";
 		return $this->read(NULL, null, null, 'id ASC');
 	}
-	public  function insert($dados){
+	public  function insert(array $dados){
 		$this->_tabela = "curso";
-		return $this->insert();
+		return parent::insert();
 	}
 }
 ?>
