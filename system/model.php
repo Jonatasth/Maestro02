@@ -31,21 +31,26 @@
         	$q->setFetchMode(PDO::FETCH_ASSOC);
         	return $q->fetch(); //retorna uma linha
         }
-        
-        
-        
-        
+                
         public function update( array $dados, $where) {
             $campos = array();
             foreach ($dados as $ind => $val) {
                 $campos[] = "{$ind} = '{$val}'";
             }
         $campos = implode(", ", $campos);
-        return $this->db->query("UPDATE `{$this->_tabela}` SET {$campos} WHERE {$where} ");
+        $sql = "UPDATE `{$this->_tabela}` SET {$campos} WHERE {$where} ";
+        
+        return $this->db->query($sql);
         }
         
         public function delete( $where) {
             return $this->db->query("DELETE FROM `{$this->_tabela}` WHERE {$where}");
+        }
+        
+        public function execute($sql){
+        	$q = $this->db->query($sql);
+        	$q->setFetchMode(PDO::FETCH_ASSOC);
+        	return $q->fetchAll(); //retorna mais de uma linha
         }
         
     }

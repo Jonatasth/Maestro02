@@ -9,7 +9,16 @@ class cursos_model extends \model{
 	}
 	
 	public function select(){
-		return $this->read(NULL, null, null, 'id ASC');
+		$sql = "SELECT
+				C.*,
+				F.funcionario as professor
+				FROM curso AS C
+				INNER JOIN funcionario as F
+					ON (F.id = C.professor)
+				ORDER BY id ASC
+				";
+		return parent::execute($sql);
+		
 	}
 	public  function insert(array $dados){
 		return parent::insert($dados);
