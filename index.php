@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 include ('system\system.php'); //capturar as a��es
 include('config.php');
 

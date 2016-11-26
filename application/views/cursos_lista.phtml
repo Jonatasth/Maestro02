@@ -1,3 +1,9 @@
+
+<?php if($view_aviso != null){?>
+<div class="alert alert-<?php echo $view_aviso['type']?>">
+	<p><?php echo $view_aviso['info']?></p>
+</div>
+<?php } ?>
 <table class="table table-striped" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
@@ -28,7 +34,7 @@
 					<td><?php echo $cursos['data_fim']?></td>
 					<td class="actions">
 						<a class="btn btn-warning btn-xs" href="cursos/editar/id/<?php echo $cursos['id'];?>">Editar</a>
-						<a class="btn btn-danger btn-xs"  href="cursos/excluir/id/"<?php echo $cursos['id'];?>">Excluir</a>
+						<a class="btn btn-danger btn-xs"  href="cursos/excluir/id/<?php echo $cursos['id'];?>">Excluir</a>
 					</td>
 				</tr>
 			</tbody>
