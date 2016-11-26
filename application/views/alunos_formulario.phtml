@@ -40,46 +40,24 @@
   	  </div>
   	  
 	  <div class="form-group col-md-3">
-  	  	<label for="carga_horaria">Carga Horária</label>
-  	  	<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" placeholder="Digite a carga horária" value="<?php echo isset($view_carga_horaria) ? $view_carga_horaria : '';?>">
-  	  	<?php if(isset($view_error['carga_horaria'])){?>
-  	  		<span> <?php echo $view_error['carga_horaria']; ?></span>
+  	  	<label for="cpf">CPF</label>
+  	  	<input type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite o cpf" value="<?php echo isset($view_cpf) ? $view_cpf : '';?>">
+  	  	<?php if(isset($view_error['cpf'])){?>
+  	  		<span> <?php echo $view_error['cpf']; ?></span>
   	  	<?php } ?>
   	  </div>
   	  
 	  <div class="form-group col-md-3">
-  	  	<label for="lotacao">Lotação</label>
-  	  	<input type="text" class="form-control" name="lotacao" id="lotacao" placeholder="Digite a lotação" value="<?php echo isset($view_lotacao) ? $view_lotacao : '';?>">
-		<?php if(isset($view_error['lotacao'])){?>
-  	  		<span> <?php echo $view_error['lotacao']; ?></span>
+  	  	<label for="id_usuario">ID Usuário</label>
+  	  	<input type="text" class="form-control" name="id_usuario" id="id_usuario" placeholder="Digite a id_usuario" value="<?php echo isset($view_id_usuario) ? $view_id_usuario : '';?>">
+		<?php if(isset($view_error['id_usuario'])){?>
+  	  		<span> <?php echo $view_error['id_usuario']; ?></span>
   	  	<?php } ?>  	  
   	  </div>
-  	  
-	  <div class="form-group col-md-3">
-  	  	<label for="data_inicio">Data Início</label>
-  	  	<input type="text" class="form-control" name="data_inicio"  id="data_inicio" placeholder="Digite a data de início do curso" value="<?php echo isset($view_data_inicio) ? $view_data_inicio : '';?>">
-  	  	<?php if(isset($view_error['data_inicio'])){?>
-  	  		<span> <?php echo $view_error['data_inicio']; ?></span>
-  	  	<?php } ?>
-  	  </div>
-	</div>
-	
-	<div class="row">
-  	  <div class="form-group col-md-6">
-  	  	<label for="data_fim">Data Fim</label>
-  	  	<input type="text" class="form-control" name="data_fim" id="data_fim" placeholder="Digite a data do fim do curso" value="<?php echo isset($view_data_fim) ? $view_data_fim : '';?>">
-		<?php if(isset($view_error['data_fim'])){?>
-  	  		<span> <?php echo $view_error['data_fim']; ?></span>
-  	  	<?php } ?>  	  
-  	  </div>
-	</div>
-	
-	<hr />
-	<div class="row">
-	  <div class="col-md-12">
-	  	<button type="submit" class="btn btn-primary" name="submit" >Salvar</button>
-		<a href="/Maestro2/cursos/cursos" class="btn btn-default">Cancelar</a>
-	  </div>
-	</div>
-  </form>
- </div>
+ <div class="form-group col-md-3"> 	  
+ <label for="imagem">Foto</label>
+<form enctype="multipar/form-data"></form>
+<input type="file" name="imagem"/>
+  </div>
+
+
