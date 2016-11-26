@@ -5,8 +5,7 @@
         public $_tabela;
         
         public function __construct() {
-            $this->db = new 
-            PDO('mysql:host='.HOSTNAME.';dbname='.DATABASE, USERNAME, PASSWORD);
+            $this->db = new PDO('mysql:host='.HOSTNAME.';dbname='.DATABASE, USERNAME, PASSWORD);
         }
         
         public function insert( array $dados) {

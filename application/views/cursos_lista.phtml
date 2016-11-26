@@ -14,6 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
+			
 			<?php foreach ($view_cursos as $cursos){?>
 				<tr>
 					<td><?php echo $cursos['id']?></td>
@@ -26,10 +27,13 @@
 					<td><?php echo $cursos['data_inicio']?></td>
 					<td><?php echo $cursos['data_fim']?></td>
 					<td class="actions">
-						<a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+						<a class="btn btn-warning btn-xs" href="/Maestro2/cursos/create">Editar</a>
 						<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 					</td>
 				</tr>
 			</tbody>
 			<?php } ?>
 		</table>
+		<div class="col-md-12">
+			<a href="/Maestro2/cursos/create" class="btn btn-default">Incluir Novo Curso</a>
+	  	</div>

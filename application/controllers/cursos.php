@@ -20,8 +20,10 @@ class cursos extends \Controller{
 		
 		
 		if(isset($_POST['submit'])){
+			
 			$cursos = new \application\models\cursos_model();
 			$dados = '';
+			
 			$dados['titulo'] = $_POST['titulo'];
 			$dados['descricao'] = $_POST['descricao'];
 			$dados['conteudo'] = $_POST['conteudo'];
