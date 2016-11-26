@@ -9,9 +9,10 @@
         }
         
         public function insert( array $dados) {
-            $campos = implode(", ", array_keys($dados));
+        	$campos = implode(", ", array_keys($dados));
             $valores = "'".implode("','", array_values($dados))."'";
-            return $this->db->query("INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})");
+            echo $sql = "INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})";
+            return $this->db->query($sql);
         }
         
         public function read( $where = NULL, $limit = null, $offset = null, $orderby = null) {

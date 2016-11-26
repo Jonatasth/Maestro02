@@ -8,7 +8,7 @@ class cursos_model extends \model{
 	}
 	public  function insert(array $dados){
 		$this->_tabela = "curso";
-		return parent::insert();
+		return parent::insert($dados);
 	}
 }
 ?>

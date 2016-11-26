@@ -2,38 +2,68 @@
   
   <h3 class="page-header">Adicionar Curso</h3>
   
+  <?php if(isset($view_error['warning'])){?>
+  	<div><p><?php echo $view_error['warning']; ?></p></div>
+  <?php } ?>
+  	  	
   <form action="" method="POST">
   	<div class="row">
   	  <div class="form-group col-md-4">
   	  	<label for="titulo">Título do Curso</label>
   	  	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o Título do Curso" value="<?php echo isset($dados['titulo']) ? $dados['titulo'] : '';?>">
+  	  	<?php if(isset($view_error['titulo'])){?>
+  	  		<span> <?php echo $view_error['titulo']; ?></span>
+  	  	<?php } ?>
   	  </div>
+  	  
 	  <div class="form-group col-md-4">
   	  	<label for="descricao">Descrição</label>
   	  	<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Digite uma breve descrição do curso" value="<?php echo isset($dados['descricao']) ? $dados['descricao'] : '';?>">
+  	    <?php if(isset($view_error['descricao'])){?>
+  	  		<span> <?php echo $view_error['descricao']; ?></span>
+  	  	<?php } ?>
   	  </div>
+  	  
 	  <div class="form-group col-md-4">
   	  	<label for="conteudo">Conteúdo</label>
   	  	<input type="text" class="form-control" name="conteudo" id="conteudo" placeholder="Digite o Conteúdo" value="<?php echo isset($dados['conteudo']) ? $dados['conteudo'] : '';?>">
   	  </div>
+  	  <?php if(isset($view_error['conteudo'])){?>
+  	  		<span> <?php echo $view_error['conteudo']; ?></span>
+  	  <?php } ?>
 	</div>
 	
 	<div class="row">
   	  <div class="form-group col-md-3">
   	  	<label for="professor">Professor</label>
   	  	<input type="text" class="form-control" name="professor" id="professor" placeholder="Digite o nome do Professor" value="<?php echo isset($dados['professor']) ? $dados['professor'] : '';?>">
+  	  	<?php if(isset($view_error['professor'])){?>
+  	  		<span> <?php echo $view_error['professor']; ?></span>
+  	  	<?php } ?>
   	  </div>
+  	  
 	  <div class="form-group col-md-3">
   	  	<label for="carga_horaria">Carga Horária</label>
   	  	<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" placeholder="Digite a carga horária" value="<?php echo isset($dados['carga_horaria']) ? $dados['carga_horaria'] : '';?>">
+  	  	<?php if(isset($view_error['carga_horaria'])){?>
+  	  		<span> <?php echo $view_error['carga_horaria']; ?></span>
+  	  	<?php } ?>
   	  </div>
+  	  
 	  <div class="form-group col-md-3">
   	  	<label for="lotacao">Lotação</label>
   	  	<input type="text" class="form-control" name="lotacao" id="lotacao" placeholder="Digite a lotação" value="<?php echo isset($dados['lotacao']) ? $dados['lotacao'] : '';?>">
+		<?php if(isset($view_error['lotacao'])){?>
+  	  		<span> <?php echo $view_error['lotacao']; ?></span>
+  	  	<?php } ?>  	  
   	  </div>
+  	  
 	  <div class="form-group col-md-3">
   	  	<label for="data_inicio">Data Início</label>
   	  	<input type="text" class="form-control" name="data_inicio"  id="data_inicio" placeholder="Digite a data de início do curso" value="<?php echo isset($dados['data_inicio']) ? $dados['data_inicio'] : '';?>">
+  	  	<?php if(isset($view_error['data_inicio'])){?>
+  	  		<span> <?php echo $view_error['data_inicio']; ?></span>
+  	  	<?php } ?>
   	  </div>
 	</div>
 	
@@ -41,10 +71,13 @@
   	  <div class="form-group col-md-6">
   	  	<label for="data_fim">Data Fim</label>
   	  	<input type="text" class="form-control" name="data_fim" id="data_fim" placeholder="Digite a data do fim do curso" value="<?php echo isset($dados['data_fim']) ? $dados['data_fim'] : '';?>">
+		<?php if(isset($view_error['data_fim'])){?>
+  	  		<span> <?php echo $view_error['data_fim']; ?></span>
+  	  	<?php } ?>  	  
   	  </div>
 	</div>
-	<hr />
 	
+	<hr />
 	<div class="row">
 	  <div class="col-md-12">
 	  	<button type="submit" class="btn btn-primary" name="submit" >Salvar</button>
