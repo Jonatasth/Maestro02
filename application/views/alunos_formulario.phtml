@@ -1,0 +1,85 @@
+ <div id="main" class="container-fluid">
+  
+  <h3 class="page-header">Adicionar Aluno</h3>
+  
+  <?php if(isset($view_error['warning'])){?>
+  	<div><p><?php echo $view_error['warning']; ?></p></div>
+  <?php } ?>
+  	  	
+  <form action="" method="POST">
+  	<div class="row">
+  	  <div class="form-group col-md-4">
+  	  	<label for="nome">Nome</label>
+  	  	<input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o Nome do ALuno" value="<?php echo isset($view_aluno) ? $view_aluno : '';?>">
+  	  	<?php if(isset($view_error['aluno'])){?>
+  	  		<span> <?php echo $view_error['aluno']; ?></span>
+  	  	<?php } ?>
+  	  </div>
+  	  
+	  <div class="form-group col-md-4">
+  	  	<label for="descricao">E-mail</label>
+  	  	<input type="text" class="form-control" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo isset($view_email) ? $view_email : '';?>">
+  	    <?php if(isset($view_error['email'])){?>
+  	  		<span> <?php echo $view_error['email']; ?></span>
+  	  	<?php } ?>
+  	  </div>
+  	  
+	  <div class="form-group col-md-4">
+  	  	<label for="telefone">Telefone</label>
+  	  	<input type="text" class="form-control" name="telefone" id="telefone" placeholder="Digite o telefone" value="<?php echo isset($view_telefone) ? $view_telefone : '';?>">
+  	  </div>
+  	  <?php if(isset($view_error['telefone'])){?>
+  	  		<span> <?php echo $view_error['telefone']; ?></span>
+  	  <?php } ?>
+	</div>
+	
+	<div class="row">
+  	  <div class="form-group col-md-3">
+  	  	<label for="endereco">Endereço</label>
+  	  	<input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereco" value="<?php echo isset($view_endereco) ? $view_endereco : '';?>">
+  	  </div>
+  	  
+	  <div class="form-group col-md-3">
+  	  	<label for="carga_horaria">Carga Horária</label>
+  	  	<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" placeholder="Digite a carga horária" value="<?php echo isset($view_carga_horaria) ? $view_carga_horaria : '';?>">
+  	  	<?php if(isset($view_error['carga_horaria'])){?>
+  	  		<span> <?php echo $view_error['carga_horaria']; ?></span>
+  	  	<?php } ?>
+  	  </div>
+  	  
+	  <div class="form-group col-md-3">
+  	  	<label for="lotacao">Lotação</label>
+  	  	<input type="text" class="form-control" name="lotacao" id="lotacao" placeholder="Digite a lotação" value="<?php echo isset($view_lotacao) ? $view_lotacao : '';?>">
+		<?php if(isset($view_error['lotacao'])){?>
+  	  		<span> <?php echo $view_error['lotacao']; ?></span>
+  	  	<?php } ?>  	  
+  	  </div>
+  	  
+	  <div class="form-group col-md-3">
+  	  	<label for="data_inicio">Data Início</label>
+  	  	<input type="text" class="form-control" name="data_inicio"  id="data_inicio" placeholder="Digite a data de início do curso" value="<?php echo isset($view_data_inicio) ? $view_data_inicio : '';?>">
+  	  	<?php if(isset($view_error['data_inicio'])){?>
+  	  		<span> <?php echo $view_error['data_inicio']; ?></span>
+  	  	<?php } ?>
+  	  </div>
+	</div>
+	
+	<div class="row">
+  	  <div class="form-group col-md-6">
+  	  	<label for="data_fim">Data Fim</label>
+  	  	<input type="text" class="form-control" name="data_fim" id="data_fim" placeholder="Digite a data do fim do curso" value="<?php echo isset($view_data_fim) ? $view_data_fim : '';?>">
+		<?php if(isset($view_error['data_fim'])){?>
+  	  		<span> <?php echo $view_error['data_fim']; ?></span>
+  	  	<?php } ?>  	  
+  	  </div>
+	</div>
+	
+	<hr />
+	<div class="row">
+	  <div class="col-md-12">
+	  	<button type="submit" class="btn btn-primary" name="submit" >Salvar</button>
+		<a href="/Maestro2/cursos/cursos" class="btn btn-default">Cancelar</a>
+	  </div>
+	</div>
+  </form>
+ </div>

@@ -1,0 +1,44 @@
+
+<?php if($view_aviso != null){?>
+<div class="alert alert-<?php echo $view_aviso['type']?>">
+	<p><?php echo $view_aviso['info']?></p>
+</div>
+<?php } ?>
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Telefone</th>
+					<th>Endereço</th>
+					<th>CPF</th>
+					<th>ID_Usuario</th>
+					<th>Imagem</th>
+					<th class="actions">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			<?php foreach ($view_alunos as $alunos){?>
+				<tr>
+					<td><?php echo $alunos['id']?></td>
+					<td><?php echo $alunos['nome']?></td>
+					<td><?php echo $alunos['email']?></td>
+					<td><?php echo $alunos['telefone']?></td>
+					<td><?php echo $alunos['endereco']?></td>
+					<td><?php echo $alunos['cpf']?></td>
+					<td><?php echo $alunos['id_usuario']?></td>
+					<td><?php echo $alunos['imagem']?></td>
+					<td class="actions">
+						<a class="btn btn-warning btn-xs" href="alunos/editar/id/<?php echo $alunos['id'];?>">Editar</a>
+						<a class="btn btn-danger btn-xs"  href="alunos/excluir/id/<?php echo $alunos['id'];?>">Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+			<?php } ?>
+			
+		</table>
+		<div class="col-md-12">
+			<a href="/Maestro2/alunos/create" class="btn btn-default">Incluir Novo Aluno</a>
+	  	</div>
