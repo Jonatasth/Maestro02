@@ -13,6 +13,7 @@ class cursos extends \Controller{
 		$data['cursos'] = $cursos_lista;
 		
 		$data['aviso'] = $_SESSION['mensagem'] ?? null;
+		unset($_SESSION['mensagem']);
 		//print_r($data);
 		$this->loadView('cursos_lista', $data);
 	}

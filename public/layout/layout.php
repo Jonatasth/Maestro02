@@ -16,8 +16,12 @@
 <a class="navbar-brand" href="#"><img class="img-responsive" src="public/img/maestro.png" style="height:30px"/></a>
 </div>
 <ul class="nav navbar-nav">
-<li class="active"><a href="#">Inicial</a></li>
-<li class="active"><a href="logout.php">Sair</a></li>
+<li class="active"><a href="dashboard/index">Inicio</a></li>
+<li><a href="cursos/cursos">Cursos</a></li>
+<li><a href="dashboard/index">Professores</a></li>
+<li><a href="dashboard/index">Alunos</a></li>
+<li><a href="dashboard/index">Configurações</a></li>
+<li><a href="logout.php">Sair</a></li>
 </ul>
 </div>
 
