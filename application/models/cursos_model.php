@@ -1,11 +1,11 @@
 <?php
 namespace application\models;
 
-class alunos_model extends \model{
+class cursos_model extends \model{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->_tabela = "aluno";
+		$this->_tabela = "curso";
 	}
 	
 	public function select(){

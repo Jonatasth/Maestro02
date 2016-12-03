@@ -1,5 +1,5 @@
 
-<?php if($view_aviso != null){?>
+<?php if($view_aviso != null & isset($view_aviso['type'])){?>
 <div class="alert alert-<?php echo $view_aviso['type']?>">
 	<p><?php echo $view_aviso['info']?></p>
 </div>

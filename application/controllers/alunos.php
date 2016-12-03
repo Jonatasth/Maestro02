@@ -8,7 +8,7 @@ class alunos extends \Controller{
 	}
 
 	public function alunos(){
-		$cursos = new \application\models\alunos_model();
+		$alunos = new \application\models\alunos_model();
 		$alunos_lista = $alunos->select();
 		$data['alunos'] = $alunos_lista;
 		
@@ -22,8 +22,8 @@ class alunos extends \Controller{
 		$data = array();
 		
 
-		$professorModel = new \application\models\professor_model();
-		$data['professores'] = $professorModel->read();
+		$alunoModel = new \application\models\alunos_model();
+		$data['alunos'] = $alunoModel->read();
 		
 		
 		if(isset($_POST['submit'])){
@@ -81,7 +81,7 @@ class alunos extends \Controller{
 		$id = parent::getParam('id') ?? null;
 		
 		if($id == null){
-			header('location: cursos/cursos');
+			header('location: alunos/alunos');
 		}
 		
 		$data = $dados = $error = array();
@@ -131,7 +131,7 @@ class alunos extends \Controller{
 			if(count($error) == 0){
 
 				$alunosModel->update($dados,"id='$id'");
-				header('location: /maestro2/cursos/cursos');
+				header('location: /maestro2/alunos/alunos');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
@@ -148,7 +148,7 @@ class alunos extends \Controller{
 			$id = parent::getParam('id') ?? null;
 			
 			if($id == null){
-				header('location: cursos/cursos');
+				header('location: alunos/alunos');
 			}
 			
 			$alunos = new  \application\models\alunos_model();
@@ -156,7 +156,7 @@ class alunos extends \Controller{
 
 			$_SESSION['mensagem'] = array('type'=>'success', 'info'=>'Excluído com sucesso');
 			
-			header('location: /maestro2/cursos/cursos');
+			header('location: /maestro2/alunos/alunos');
 			
 		}
 	
