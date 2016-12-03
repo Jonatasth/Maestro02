@@ -21,7 +21,7 @@ class cursos extends \Controller{
 	public function create(){
 		$data = array();
 		
-
+		//listagem dos professores
 		$professorModel = new \application\models\professor_model();
 		$data['professores'] = $professorModel->read();
 		
@@ -78,7 +78,8 @@ class cursos extends \Controller{
 			
 			if(count($error) == 0){
 				$cursos->insert($dados);
-				header('location: cursos/cursos');
+				//print_r($dados);die();
+				header('location: /maestro2/cursos/cursos');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;

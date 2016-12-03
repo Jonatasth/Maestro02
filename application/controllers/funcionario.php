@@ -22,10 +22,6 @@ class funcionario extends \Controller{
 		$data = array();
 		
 
-		$funcionarioModel = new \application\models\funcionario_model();
-		$data['funcionario'] = $funcionarioModel->read();
-		
-		
 		if(isset($_POST['submit'])){
 			
 			$funcionario = new \application\models\funcionario_model();
@@ -37,7 +33,7 @@ class funcionario extends \Controller{
 			$dados['ativo'] = $_POST['ativo'] ?? '';
 			$dados['id_usuario'] = $_POST['id_usuario'] ?? '';
 
-		
+			
 			if(isset($dados['funcionario']) and $dados['funcionario'] == ''){
 				$error['funcionario'] = 'Informe o nome'; 
 			}
@@ -54,7 +50,7 @@ class funcionario extends \Controller{
 			
 			if(count($error) == 0){
 				$funcionario->insert($dados);
-				header('location: funcionario/funcionario');
+				header('location: /maestro2/funcionario/funcionario');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
@@ -69,17 +65,13 @@ class funcionario extends \Controller{
 		$id = parent::getParam('id') ?? null;
 		
 		if($id == null){
-			header('location: funcionario/formulario');
+			header('location: /maestro2/funcionario/formulario');
 		}
 		
 		$data = $dados = $error = array();
 		
 		$funcionarioModel = new \application\models\funcionario_model();
 		$data = $funcionarioModel->readById($id);
-		
-		//$professorModel = new \application\models\professor_model();
-		//$data['professores'] = $professorModel->read();
-		
 		
 		
 		if(isset($_POST['submit'])){
@@ -105,7 +97,7 @@ class funcionario extends \Controller{
 			
 				
 			if(count($error) == 0){
-				$funcionario->insert($dados);
+				$funcionarioModel->update($dados,"id='$id'");
 				header('location: /maestro2/funcionario/funcionario');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';

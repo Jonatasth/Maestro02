@@ -21,6 +21,9 @@
 			</thead>
 			<tbody>
 			
+				<tr>
+			
+			<?php if( isset($view_cursos) and is_array($view_cursos) and count($view_cursos) > 0 ){?>
 			<?php foreach ($view_cursos as $cursos){?>
 				<tr>
 					<td><?php echo $cursos['id']?></td>
@@ -37,9 +40,13 @@
 						<a class="btn btn-danger btn-xs"  href="cursos/excluir/id/<?php echo $cursos['id'];?>">Excluir</a>
 					</td>
 				</tr>
-			</tbody>
 			<?php } ?>
-			
+			<?php }else{ ?>
+					<tr>
+						<td colspan="9">Sem registro</td>
+					</tr>
+			<?php } ?>
+			</tbody>
 		</table>
 		<div class="col-md-12">
 			<a href="/Maestro2/cursos/create" class="btn btn-default">Incluir Novo Curso</a>
