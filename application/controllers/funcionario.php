@@ -1,7 +1,7 @@
 <?php
 namespace application\controllers;
 
-class cursos extends \Controller{
+class funcionario extends \Controller{
 
 	public function __contruct(){
 		parent::__construct();
@@ -10,7 +10,7 @@ class cursos extends \Controller{
 	public function funcionario(){
 		$funcionario = new \application\models\funcionario_model();
 		$funcionario_lista = $funcionario->select();
-		$data['funcionario'] = $cursos_lista;
+		$data['funcionario'] = $funcionario_lista;
 		
 		$data['aviso'] = $_SESSION['mensagem'] ?? null;
 		unset($_SESSION['mensagem']);
@@ -37,7 +37,7 @@ class cursos extends \Controller{
 			$dados['ativo'] = $_POST['ativo'] ?? '';
 			$dados['id_usuario'] = $_POST['id_usuario'] ?? '';
 
-			
+		
 			if(isset($dados['funcionario']) and $dados['funcionario'] == ''){
 				$error['funcionario'] = 'Informe o nome'; 
 			}
@@ -59,10 +59,9 @@ class cursos extends \Controller{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
 			}
-	
 		}
 		
-		$this->loadView('funcionario/formulario', $data);
+		$this->loadView('funcionario_formulario', $data);
 	}
 	
 	public function editar(){
@@ -90,7 +89,7 @@ class cursos extends \Controller{
 			$dados['ativo'] = $_POST['ativo'] ?? '';
 			$dados['id_usuario'] = $_POST['id_usuario'] ?? '';
 				
-			}
+			
 			if(isset($dados['funcionario']) and $dados['funcionario'] == ''){
 				$error['funcionario'] = 'Informe o nome';
 			}
@@ -107,17 +106,16 @@ class cursos extends \Controller{
 				
 			if(count($error) == 0){
 				$funcionario->insert($dados);
-				header('location: funcionario/funcionario');
+				header('location: /maestro2/funcionario/funcionario');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
 			}
 			
-	//}
-		
-		$this->loadView('funcionario_formulario', $data);
-	
+			}
+			$this->loadView('funcionario_formulario', $data);
 		}
+
 		
 		public function excluir(){
 			

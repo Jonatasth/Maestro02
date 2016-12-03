@@ -9,43 +9,29 @@
   <form action="" method="POST" enctype="multipart/form-data">
   	<div class="row">
   	  <div class="form-group col-md-4">
-  	  	<label for="funcionario">Nome</label>
-  	  	<input type="text" class="form-control" name="funcionario" id="funcionario" placeholder="Digite o Nome do Funcionario" value="<?php echo isset($view_nome) ? $view_nome : '';?>">
-  	  	<?php if(isset($view_error['nome'])){?>
-  	  		<span> <?php echo $view_error['nome']; ?></span>
+  	  	<label for="funcionario">Nome Funcionario</label>
+  	  	<input type="text" class="form-control" name="funcionario" id="funcionario" placeholder="Digite o Nome do Funcionario" value="<?php echo isset($view_funcionario) ? $view_funcionario : '';?>">
+  	  	<?php if(isset($view_error['funcionario'])){?>
+  	  		<span> <?php echo $view_error['funcionario']; ?></span>
   	  	<?php } ?>
   	  </div>
   	  
 	  <div class="form-group col-md-4">
-  	  	<label for="email">E-mail</label>
-  	  	<input type="text" class="form-control" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo isset($view_email) ? $view_email : '';?>">
-  	    <?php if(isset($view_error['email'])){?>
-  	  		<span> <?php echo $view_error['email']; ?></span>
+  	  	<label for="funcao">Função</label>
+  	  	<input type="text" class="form-control" name="funcao" id="funcao" placeholder="Digite a função" value="<?php echo isset($view_funcao) ? $view_funcao : '';?>">
+  	    <?php if(isset($view_error['funcao'])){?>
+  	  		<span> <?php echo $view_error['funcao']; ?></span>
   	  	<?php } ?>
   	  </div>
   	  
 	  <div class="form-group col-md-4">
-  	  	<label for="telefone">Telefone</label>
-  	  	<input type="text" class="form-control" name="telefone" id="telefone" placeholder="Digite o telefone" value="<?php echo isset($view_telefone) ? $view_telefone : '';?>">
+  	  	<label for="ativo">Ativo</label>
+  	  	<input type="text" class="form-control" name="ativo" id="ativo" placeholder="Digite 1 p/ Ativo ou 0 p/ inativo" value="<?php echo isset($view_ativo) ? $view_ativo : '';?>">
   	  </div>
-  	  <?php if(isset($view_error['telefone'])){?>
-  	  		<span> <?php echo $view_error['telefone']; ?></span>
+  	  <?php if(isset($view_error['ativo'])){?>
+  	  		<span> <?php echo $view_error['ativo']; ?></span>
   	  <?php } ?>
 	</div>
-	
-	<div class="row">
-  	  <div class="form-group col-md-3">
-  	  	<label for="endereco">Endereço</label>
-  	  	<input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereco" value="<?php echo isset($view_endereco) ? $view_endereco : '';?>">
-  	  </div>
-  	  
-	  <div class="form-group col-md-3">
-  	  	<label for="cpf">CPF</label>
-  	  	<input type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite o cpf" value="<?php echo isset($view_cpf) ? $view_cpf : '';?>">
-  	  	<?php if(isset($view_error['cpf'])){?>
-  	  		<span> <?php echo $view_error['cpf']; ?></span>
-  	  	<?php } ?>
-  	  </div>
   	  
 	  <div class="form-group col-md-3">
   	  	<label for="id_usuario">ID Usuário</label>
@@ -55,16 +41,11 @@
   	  	<?php } ?>  	  
   	  </div>
 	 
-	 <div class="form-group col-md-3">
-	 	<label for="imagem">Foto</label>
-		<input type="file" name="imagem"/>
-	 </div>
-  
 	<hr>
 	<div class="row">
 	  <div class="col-md-12">
 	  	<button type="submit" class="btn btn-primary" name="submit" >Salvar</button>
-		<a href="/Maestro2/alunos/alunos" class="btn btn-default">Cancelar</a>
+		<a href="/Maestro2/funcionario/funcionario" class="btn btn-default">Cancelar</a>
 	  </div>
 	</div>
   </form>

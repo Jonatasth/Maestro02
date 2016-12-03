@@ -1,0 +1,45 @@
+
+<?php if($view_aviso != null & isset($view_aviso['type'])){?>
+<div class="alert alert-<?php echo $view_aviso['type']?>">
+	<p><?php echo $view_aviso['info']?></p>
+</div>
+<?php } ?>
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Função</th>
+					<th>Ativo</th>
+					<th>ID_Usuario</th>
+					<th class="actions">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			<?php if( isset($view_funcionario) and is_array($view_funcionario) and count($view_funcionario) > 0 ){?>
+				<?php foreach ($view_funcionario as $funcionario){?>
+					<tr>
+						<td><?php echo $funcionario['id']?></td>
+						<td><?php echo $funcionario['funcionario']?></td>
+						<td><?php echo $funcionario['funcao']?></td>
+						<td><?php echo $funcionario['ativo']?></td>
+						<td><?php echo $funcionario['id_usuario']?></td>
+
+						<td class="actions">
+							<a class="btn btn-warning btn-xs" href="funcionario/editar/id/<?php echo $funcionario['id'];?>">Editar</a>
+							<a class="btn btn-danger btn-xs"  href="funcionario/excluir/id/<?php echo $funcionario['id'];?>">Excluir</a>
+						</td>
+					</tr>
+
+				<?php } ?>
+			<?php }else{ ?>
+					<tr>
+						<td colspan="9">Sem registro</td>
+					</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+		<div class="col-md-12">
+			<a href="/Maestro2/funcionario/create" class="btn btn-default">Incluir Novo Funcionario</a>
+	  	</div>
