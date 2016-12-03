@@ -6,18 +6,18 @@
   	<div><p><?php echo $view_error['warning']; ?></p></div>
   <?php } ?>
   	  	
-  <form action="" method="POST">
+  <form action="" method="POST" enctype="multipart/form-data">
   	<div class="row">
   	  <div class="form-group col-md-4">
   	  	<label for="nome">Nome</label>
-  	  	<input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o Nome do ALuno" value="<?php echo isset($view_aluno) ? $view_aluno : '';?>">
-  	  	<?php if(isset($view_error['aluno'])){?>
-  	  		<span> <?php echo $view_error['aluno']; ?></span>
+  	  	<input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o Nome do ALuno" value="<?php echo isset($view_nome) ? $view_nome : '';?>">
+  	  	<?php if(isset($view_error['nome'])){?>
+  	  		<span> <?php echo $view_error['nome']; ?></span>
   	  	<?php } ?>
   	  </div>
   	  
 	  <div class="form-group col-md-4">
-  	  	<label for="descricao">E-mail</label>
+  	  	<label for="email">E-mail</label>
   	  	<input type="text" class="form-control" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo isset($view_email) ? $view_email : '';?>">
   	    <?php if(isset($view_error['email'])){?>
   	  		<span> <?php echo $view_error['email']; ?></span>
@@ -54,19 +54,20 @@
   	  		<span> <?php echo $view_error['id_usuario']; ?></span>
   	  	<?php } ?>  	  
   	  </div>
- <div class="form-group col-md-3"> 	  
- <label for="imagem">Foto</label>
-<form enctype="multipar/form-data"></form>
-<input type="file" name="imagem"/>
- </div>
+	 
+	 <div class="form-group col-md-3">
+	 	<label for="imagem">Foto</label>
+		<input type="file" name="imagem"/>
+	 </div>
   
-
+	<hr>
 	<div class="row">
 	  <div class="col-md-12">
 	  	<button type="submit" class="btn btn-primary" name="submit" >Salvar</button>
 		<a href="/Maestro2/alunos/alunos" class="btn btn-default">Cancelar</a>
 	  </div>
 	</div>
-
+  </form>
+ </div>
 
 

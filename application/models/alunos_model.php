@@ -10,11 +10,8 @@ class alunos_model extends \model{
 	
 	public function select(){
 		$sql = "SELECT
-				C.*,
-				a.aluno as nome
+				C.*
 				FROM aluno AS C
-				INNER JOIN aluno as A
-					ON (A.id = a.nome)
 				ORDER BY id ASC
 				";
 		return parent::execute($sql);

@@ -27,22 +27,18 @@ class alunos extends \Controller{
 		
 		
 		if(isset($_POST['submit'])){
-			
 			$alunos = new \application\models\alunos_model();
 			
 			$dados = $error = array();
 			
-			$dados['Fotos'] = $_POST['imagem'] ?? '';
-			$dados['Nome'] = $_POST['nome'] ?? '';
-			$dados['E-mail'] = $_POST['email'] ?? '';
-			$dados['Telefone'] = $_POST['telefone'] ?? '';
-			$dados['Endereço'] = $_POST['endereco'] ?? '';
-			$dados['CPF'] = $_POST['cpf'] ?? '';
-			$dados['Id_Usuário'] = $_POST['id_usuario'] ?? '';
 			
-			if(isset($dados['imagem']) and $dados['imagem'] == ''){
-				$error['imagem'] = 'Informe um titulo'; 
-			}
+			$dados['nome'] = $_POST['nome'] ?? '';
+			$dados['email'] = $_POST['email'] ?? '';
+			$dados['telefone'] = $_POST['telefone'] ?? '';
+			$dados['endereco'] = $_POST['endereco'] ?? '';
+			$dados['cpf'] = $_POST['cpf'] ?? '';
+			$dados['id_usuario'] = $_POST['id_usuario'] ?? '';
+			
 			if(isset($dados['nome']) and $dados['nome'] == ''){
 				$error['nome'] = 'Informe a descrição';
 			}
@@ -63,9 +59,21 @@ class alunos extends \Controller{
 				$error['id_usuario'] = 'Informe uma data de inicio';
 			}
 			
+			if(isset($_FILES['imagem']) and $_FILES['imagem']['error'] != '0'){
+				$error['imagem'] = 'Informe uma imagem';
+			}
+			
 			if(count($error) == 0){
+			
+				$diretorioDeArmazenamento = 'data/';
+				if( move_uploaded_file($_FILES['imagem']['tmp_name'] , $diretorioDeArmazenamento.$_FILES['imagem']['name']) ){
+					$dados['imagem'] = $diretorioDeArmazenamento.$_FILES['imagem']['name'];
+				}else{
+					$dados['imagem'] = NULL;
+				}
+				
 				$alunos->insert($dados);
-				header('location: cursos/cursos');
+				header('location: /maestro2/alunos/alunos');
 			}else{
 				$error['warning'] = 'Preencha corretamente o formulario';
 				$data['error'] = $error;
@@ -81,7 +89,7 @@ class alunos extends \Controller{
 		$id = parent::getParam('id') ?? null;
 		
 		if($id == null){
-			header('location: alunos/alunos');
+			header('location: /maestro2/alunos/alunos');
 		}
 		
 		$data = $dados = $error = array();
@@ -89,14 +97,14 @@ class alunos extends \Controller{
 		$alunosModel = new \application\models\alunos_model();
 		$data = $alunosModel->readById($id);
 		
-		$professorModel = new \application\models\professor_model();
-		$data['professores'] = $professorModel->read();
+		//$professorModel = new \application\models\professor_model();
+		//$data['professores'] = $professorModel->read();
 		
 		
 		
 		if(isset($_POST['submit'])){
 				
-			$dados['Fotos'] = $_POST['imagem'] ?? '';
+			$dados['Imagem'] = $_POST['imagem'] ?? '';
 			$dados['Nome'] = $_POST['nome'] ?? '';
 			$dados['E-mail'] = $_POST['email'] ?? '';
 			$dados['Telefone'] = $_POST['telefone'] ?? '';
@@ -105,26 +113,26 @@ class alunos extends \Controller{
 			$dados['Id_Usuário'] = $_POST['id_usuario'] ?? '';
 				
 			if(isset($dados['imagem']) and $dados['imagem'] == ''){
-				$error['imagem'] = 'Informe um titulo';
+				$error['imagem'] = 'anexe uma imagem';
 			}
 			if(isset($dados['nome']) and $dados['nome'] == ''){
-				$error['nome'] = 'Informe a descrição';
+				$error['nome'] = 'Informe o nome';
 			}
 			if(isset($dados['email']) and $dados['email'] == ''){
-				$error['email'] = 'Informe o conteúdo';
+				$error['email'] = 'Informe o e-mail';
 			}
 			if(isset($dados['telefone']) and $dados['telefone'] == ''){
-				$error['telefone'] = 'Informe o nome do Professor';
+				$error['telefone'] = 'Informe o telefone';
 			}
 			if(isset($dados['endereco']) and $dados['endereco'] == ''){
-				$error['endereco'] = 'Informe a carga horária do curso';
+				$error['endereco'] = 'Informe o endereço';
 			}
 			if(isset($dados['cpf']) and $dados['cpf'] == ''){
-				$error['cpf'] = 'Informe a lotação para o curso';
+				$error['cpf'] = 'Informe o CPF';
 			}
 				
 			if(isset($dados['id_usuario']) and $dados['id_usuario'] == ''){
-				$error['id_usuario'] = 'Informe uma data de inicio';
+				$error['id_usuario'] = 'Informe uma ID de Usuário';
 			}
 			
 			
@@ -148,7 +156,7 @@ class alunos extends \Controller{
 			$id = parent::getParam('id') ?? null;
 			
 			if($id == null){
-				header('location: alunos/alunos');
+				header('location: /maestro2/alunos/alunos');
 			}
 			
 			$alunos = new  \application\models\alunos_model();

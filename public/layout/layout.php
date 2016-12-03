@@ -19,7 +19,7 @@
 <li class="active"><a href="dashboard/index">Inicio</a></li>
 <li><a href="cursos/cursos">Cursos</a></li>
 <li><a href="dashboard/index">Professores</a></li>
-<li><a href="dashboard/index">Alunos</a></li>
+<li><a href="alunos/alunos">Alunos</a></li>
 <li><a href="dashboard/index">Configurações</a></li>
 <li><a href="logout.php">Sair</a></li>
 </ul>

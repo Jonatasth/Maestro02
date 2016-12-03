@@ -11,7 +11,7 @@
         public function insert( array $dados) {
         	$campos = implode(", ", array_keys($dados));
             $valores = "'".implode("','", array_values($dados))."'";
-            echo $sql = "INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})";
+            $sql = "INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})";
             return $this->db->query($sql);
         }
         
@@ -49,8 +49,13 @@
         
         public function execute($sql){
         	$q = $this->db->query($sql);
-        	$q->setFetchMode(PDO::FETCH_ASSOC);
-        	return $q->fetchAll(); //retorna mais de uma linha
+        	$num_rows = $q->rowCount();
+        	if($num_rows > 0){
+        		$q->setFetchMode(PDO::FETCH_ASSOC);
+        		return $q->fetchAll(); //retorna mais de uma linha
+        	}else{
+        		return false;
+        	}
         }
         
     }
