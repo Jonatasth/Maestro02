@@ -83,7 +83,11 @@ class alunos extends \Controller{
 		
 		$this->loadView('alunos_formulario', $data);
 	}
-	
+	////função para consultar Aluno Já cadastrado///
+	//public function consultar(){
+	//	$id = parent::getParam('id') ?? null;
+	//}
+		
 	public function editar(){
 		
 		$id = parent::getParam('id') ?? null;
