@@ -104,17 +104,16 @@ class alunos extends \Controller{
 		
 		if(isset($_POST['submit'])){
 				
-			$dados['Imagem'] = $_POST['imagem'] ?? '';
-			$dados['Nome'] = $_POST['nome'] ?? '';
-			$dados['E-mail'] = $_POST['email'] ?? '';
-			$dados['Telefone'] = $_POST['telefone'] ?? '';
-			$dados['Endereço'] = $_POST['endereco'] ?? '';
-			$dados['CPF'] = $_POST['cpf'] ?? '';
-			$dados['Id_Usuário'] = $_POST['id_usuario'] ?? '';
+			
+			print_r($_POST);
+			$dados['nome'] = $_POST['nome'] ?? '';
+			$dados['email'] = $_POST['email'] ?? '';
+			$dados['telefone'] = $_POST['telefone'] ?? '';
+			$dados['endereco'] = $_POST['endereco'] ?? '';
+			$dados['cpf'] = $_POST['cpf'] ?? '';
+			$dados['id_usuario'] = $_POST['id_usuario'] ?? '';
 				
-			if(isset($dados['imagem']) and $dados['imagem'] == ''){
-				$error['imagem'] = 'anexe uma imagem';
-			}
+			
 			if(isset($dados['nome']) and $dados['nome'] == ''){
 				$error['nome'] = 'Informe o nome';
 			}
@@ -135,9 +134,22 @@ class alunos extends \Controller{
 				$error['id_usuario'] = 'Informe uma ID de Usuário';
 			}
 			
+			//obrigatirio
 			
 			if(count($error) == 0){
-
+				
+				if(isset($_FILES['imagem']) and $_FILES['imagem']['error'] == '0'){
+					$diretorioDeArmazenamento = 'data/';
+					if( move_uploaded_file($_FILES['imagem']['tmp_name'] , $diretorioDeArmazenamento.$_FILES['imagem']['name']) ){
+						$dados['imagem'] = $diretorioDeArmazenamento.$_FILES['imagem']['name'];
+					}else{
+						$dados['imagem'] = NULL;
+					}
+				}else{
+					$dados['imagem'] = $_POST['imagem_existe'];
+				}
+				
+		
 				$alunosModel->update($dados,"id='$id'");
 				header('location: /maestro2/alunos/alunos');
 			}else{

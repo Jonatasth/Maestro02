@@ -1,6 +1,6 @@
  <div id="main" class="container-fluid">
   
-  <h3 class="page-header">Adicionar Aluno</h3>
+  <h3 class="page-header">Adicionar Funcionario</h3>
   
   <?php if(isset($view_error['warning'])){?>
   	<div><p><?php echo $view_error['warning']; ?></p></div>
@@ -9,8 +9,8 @@
   <form action="" method="POST" enctype="multipart/form-data">
   	<div class="row">
   	  <div class="form-group col-md-4">
-  	  	<label for="nome">Nome</label>
-  	  	<input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o Nome do ALuno" value="<?php echo isset($view_nome) ? $view_nome : '';?>">
+  	  	<label for="funcionario">Nome</label>
+  	  	<input type="text" class="form-control" name="funcionario" id="funcionario" placeholder="Digite o Nome do Funcionario" value="<?php echo isset($view_nome) ? $view_nome : '';?>">
   	  	<?php if(isset($view_error['nome'])){?>
   	  		<span> <?php echo $view_error['nome']; ?></span>
   	  	<?php } ?>
@@ -58,18 +58,6 @@
 	 <div class="form-group col-md-3">
 	 	<label for="imagem">Foto</label>
 		<input type="file" name="imagem"/>
-		
-		<?php if(isset($view_imagem)){?>
-			<a href="<?php echo $view_imagem;?>" target="_blank">Visualizar Arquivo</a>
-			<input type="hidden" name="imagem_existe" value="<?php echo $view_imagem?>" />
-		<?php } ?>
-		
-		<?php if(isset($view_error['imagem'])){?>
-  	  		<span> <?php echo $view_error['imagem']; ?></span>
-  	  	<?php } ?>  	  
-		
-		
-		
 	 </div>
   
 	<hr>

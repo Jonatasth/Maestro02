@@ -27,8 +27,7 @@
 
 </nav>
 <ol class="breadcrumb">
-<li><a href="#">Home</a></li>
-<li class="active">Cursos</li>
+<li><a href="dashboard/index">Home</a></li>
 </ol>
 {{{content}}}
 </body>
