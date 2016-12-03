@@ -1,8 +1,9 @@
 <?php 
 session_start();
 
-include ('system\system.php'); //capturar as a��es
+include ('system\system.php');
 include('config.php');
+require('system\upload.php');
 
 require_once ('system\system.php');
 require_once ('system\controller.php');

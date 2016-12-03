@@ -64,13 +64,17 @@ class alunos extends \Controller{
 			}
 			
 			if(count($error) == 0){
-			
-				$diretorioDeArmazenamento = 'data/';
+				
+				$upload = new \upload($_FILES['imagem']);
+				$dados['imagem'] = $upload->execute();
+				
+				
+				/*$diretorioDeArmazenamento = 'data/';
 				if( move_uploaded_file($_FILES['imagem']['tmp_name'] , $diretorioDeArmazenamento.$_FILES['imagem']['name']) ){
 					$dados['imagem'] = $diretorioDeArmazenamento.$_FILES['imagem']['name'];
 				}else{
 					$dados['imagem'] = NULL;
-				}
+				}*/
 				
 				$alunos->insert($dados);
 				header('location: /maestro2/alunos/alunos');
@@ -142,13 +146,19 @@ class alunos extends \Controller{
 			
 			if(count($error) == 0){
 				
+				
 				if(isset($_FILES['imagem']) and $_FILES['imagem']['error'] == '0'){
-					$diretorioDeArmazenamento = 'data/';
+					/*$diretorioDeArmazenamento = 'data/';
 					if( move_uploaded_file($_FILES['imagem']['tmp_name'] , $diretorioDeArmazenamento.$_FILES['imagem']['name']) ){
 						$dados['imagem'] = $diretorioDeArmazenamento.$_FILES['imagem']['name'];
 					}else{
 						$dados['imagem'] = NULL;
-					}
+					}*/
+					$upload = new \upload($_FILES['imagem']);
+					$upload->setExtension(array('png','jpg'));
+					//$upload->execute();
+					$dados['imagem'] = $upload->execute();
+					
 				}else{
 					$dados['imagem'] = $_POST['imagem_existe'];
 				}
