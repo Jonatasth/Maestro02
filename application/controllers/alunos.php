@@ -156,7 +156,6 @@ class alunos extends \Controller{
 					}*/
 					$upload = new \upload($_FILES['imagem']);
 					$upload->setExtension(array('png','jpg'));
-					//$upload->execute();
 					$dados['imagem'] = $upload->execute();
 					
 				}else{

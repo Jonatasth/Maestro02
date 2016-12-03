@@ -34,7 +34,7 @@ class upload{
 		$this->extension=$extension;
 	}
 	public function checkExtension(){
-		$nome=explode('.', $this->file['tmp_name']);
+		$nome=explode('.', $this->file['name']);
 		$extensão= end($nome);
 		if( in_array($extensão, $this->extension)){
 			return true;
