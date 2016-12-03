@@ -76,6 +76,7 @@ class Image {
 		}
 	}
 
+
 	public function resize($width = 0, $height = 0, $default = '') {
 		if (!$this->width || !$this->height) {
 			return;
