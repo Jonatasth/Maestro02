@@ -17,7 +17,7 @@ class alunos extends \Controller{
 		$alunos_lista = $alunoModel->select();
 		$data['alunos'] = array();
 		foreach ($alunos_lista as $aluno){
-			print_r($aluno);
+			//print_r($aluno);
 			$toolimage = new \toolimage();
 			$toolimage->file = $aluno['imagem'];
 			$aluno['imagem'] = $toolimage->resize('200','200'); //tamanho da imagem
