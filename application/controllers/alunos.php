@@ -223,12 +223,25 @@ class alunos extends \Controller{
 		
 		//**************PDF****************//
 		public function gerapdf(){
-			$alunosModel = new \application\modelozaluno_model();
+			
+			$alunosModel = new \application\models\alunos_model();
 			$alunosLista = $alunosModel->select();
+			
 			$dados='';
-			foreach ($alunosModel as $aluno){
-								
+			foreach ($alunosLista as $aluno){
+				$dados.='<div>
+				<p> Id:'.$aluno['id'].'</p>
+				<p> Nome:'.$aluno['nome'].'</p>
+				<p> Telefone:'.$aluno['telefone'].'</p>
+				<p> Endereco:'.$aluno['endereco'].'</p>
+				<p> CPF:'.$aluno['cpf'].'</p>
+				<p> Id_Usuário:'.$aluno['id_usuario'].'</p>
+				<p> Imagem:'.$aluno['imagem_existe'].'</p>
+				<p> E-mail:'.$aluno['email'].'</p></div>';		
 			}
+			$mpdf = new \Mpdf();
+			$mpdf->WriteHtml($dados);
+			$mpdf->OutPut();
 		}
 		
 	}
