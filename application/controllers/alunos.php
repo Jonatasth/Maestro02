@@ -236,7 +236,7 @@ class alunos extends \Controller{
 				<p> Endereco:'.$aluno['endereco'].'</p>
 				<p> CPF:'.$aluno['cpf'].'</p>
 				<p> Id_Usuário:'.$aluno['id_usuario'].'</p>
-				<p> Imagem:'.$aluno['imagem_existe'].'</p>
+				<p> Imagem:'.$aluno['imagem'].'</p>
 				<p> E-mail:'.$aluno['email'].'</p></div>';		
 			}
 			$mpdf = new \Mpdf();
@@ -244,6 +244,30 @@ class alunos extends \Controller{
 			$mpdf->OutPut();
 		}
 		
+		
+		////***********gera pdf 2************/////
+		public function gerapdf2(){
+			$alunoModel = new \application\models\alunos_model();
+			$alunos_lista = $alunoModel->select();
+			$data['alunos'] = array();
+			foreach ($alunos_lista as $aluno){
+					
+				if(isset($aluno['imagem']) and $aluno['imagem'] != ''){
+					$toolimage = new \toolimage();
+					$toolimage->file = $aluno['imagem'];
+					$aluno['imagem'] = $toolimage->resize('80','80'); //tamanho da imagem
+				}
+				$data['alunos'][]=$aluno;
+			}		
+			$data['aviso'] = $_SESSION['mensagem'] ?? null;
+			unset($_SESSION['mensagem']);
+			//print_r($data);
+			$conteudo = $this->loadView2('alunos_lista', $data);
+			
+			$mpdf = new \Mpdf();
+			$mpdf->WriteHtml($conteudo);
+			$mpdf->OutPut();
+		}
 	}
 
 ?>

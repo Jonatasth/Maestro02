@@ -35,13 +35,8 @@ class Controller extends \System{
 		$conteudo = ob_get_contents();
 			
 		ob_end_clean();
-			
-		ob_start();
-		require_once ('public/layout/layout.php');
-		$layout = ob_get_contents();
-		ob_end_clean();
-	
-		echo str_replace('{{{content}}}', $conteudo, $layout);
+		
+		return $conteudo;
 	}
 
 }
