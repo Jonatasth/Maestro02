@@ -214,10 +214,11 @@ class alunos extends \Controller{
 		}
 	
 	public function gerapdf(){
-		$mpdf = new  \Mpdf\Mpdf();
-		$mpdf->writeHtml('<h1> Oi Mundo</h1>');
-		$mpdf->OutPut();
-	}
+		$mpdf = new \Mpdf\Mpdf();
+		$mpdf->WriteHTML('<h1>Hello world!</h1>');
+		$mpdf->Output();
+		
+		}
 		
 	}
 
