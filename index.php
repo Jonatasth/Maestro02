@@ -4,6 +4,7 @@ session_start();
 include ('system\system.php');
 include('config.php');
 require('system\upload.php');
+include ('system\toolimage.php');
 
 require_once ('system\system.php');
 require_once ('system\controller.php');

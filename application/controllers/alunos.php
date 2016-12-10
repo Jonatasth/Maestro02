@@ -8,9 +8,21 @@ class alunos extends \Controller{
 	}
 
 	public function alunos(){
+		//$alunos = new \application\models\alunos_model();
+		//$alunos_lista = $alunos->select();
+		//$data['alunos'] = $alunos_lista;
+		
+		
 		$alunos = new \application\models\alunos_model();
-		$alunos_lista = $alunos->select();
-		$data['alunos'] = $alunos_lista;
+		$alunos_lista = $alunosmodel->select();
+		$data['alunos'] = array();
+		foreach ($alunos_lista as $aluno){
+			$toolimage = new toolimage();
+			$toolimage->$file = $aluno['imagem'];
+			$aluno['imagem'] = $toolimage->resize('200','200'); //tamanho da imagem
+			$data['alunos'][]=$aluno;
+		}
+		//**//
 		
 		$data['aviso'] = $_SESSION['mensagem'] ?? null;
 		unset($_SESSION['mensagem']);

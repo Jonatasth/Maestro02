@@ -1,6 +1,6 @@
 <?php
 class upload{
-	const APP_DIRECTORY = 'data/';
+	const APP_DIRECTORY = 'imagem/catalog/';
 	public $file;//armazena o nosso array//
 	public $extension = array();
 

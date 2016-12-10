@@ -1,10 +1,13 @@
 <?php
 define ('VERSION', '1.0.0.1');
 
-//DIRETÓRIOS DA APLICAÇÃO
+//DIRETï¿½RIOS DA APLICAï¿½ï¿½O
 define ('CONTROLLERS', './application/controllers/');
 define ('MODELS' , './application/models/');
 define ('VIEWS' , './application/views/');
+
+define ('DIR_IMAGE', 'C:\wamp64\www\Maestro2\imagem\catalog');
+define ('DIR_CACHE', 'C:\wamp64\www\Maestro2\imagem\cache');
 
 //BANCO DE DADOS
 define('DRIVER', 'mysql');
