@@ -16,14 +16,15 @@ require_once ('system\controller.php');
 require_once ('system\model.php');
 //require_once ('controllers\cursos.php');
 
-require 'vendor/autoload.php';
+
 
 
 function __autoload($file){
 	if (file_exists ($file . '.php'))
 		require_once ($file . '.php');
 	else 
-		die('Classe não encontrada!');
+		require 'vendor/autoload.php';
+		//die('Classe não encontrada!');
 }
 
 $obj = new System();
