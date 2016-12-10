@@ -5,6 +5,9 @@ include ('system\system.php');
 include('config.php');
 require('system\upload.php');
 include ('system\imagem.php');
+include ('system\mpfdf\src\Mpdf.php');
+
+
 
 include ('system\toolimage.php');
 
