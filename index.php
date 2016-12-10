@@ -17,7 +17,7 @@ require_once ('system\model.php');
 //require_once ('controllers\cursos.php');
 
 
-
+require_once 'vendor/mpdf/mpdf/mpdf.php';
 
 function __autoload($file){
 	if (file_exists ($file . '.php'))

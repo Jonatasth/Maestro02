@@ -213,13 +213,45 @@ class alunos extends \Controller{
 			
 		}
 	
-	public function gerapdf(){
-		$mpdf = new \Mpdf\Mpdf();
+		/*public function gerapdf(){
+		 esse é o basico para gerar pdf
+		$mpdf = new \Mpdf();
 		$mpdf->WriteHTML('<h1>Hello world!</h1>');
 		$mpdf->Output();
 		
+		}*/
+		
+		//**************PDF****************//
+		public function gerapdf(){
+			$alunosModel = new \application\modelozaluno_model();
+			$alunosLista = $alunosModel->select();
+			$dados='';
+			foreach ($alunosModel as $aluno){
+								
+			}
 		}
 		
 	}
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
