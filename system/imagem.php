@@ -1,5 +1,5 @@
 <?php
-class Image {
+class Imagem {
 	private $file;
 	private $image;
 	private $width;
@@ -7,11 +7,13 @@ class Image {
 	private $bits;
 	private $mime;
 
-	public function __construct($file) {
+	//public function __construct($file) {
+	public function __construct() {
 		if (!extension_loaded('gd')) {
 			exit('Error: PHP GD is not installed!');
 		}
-
+		
+		/*
 		if (file_exists($file)) {
 			$this->file = $file;
 
@@ -31,7 +33,7 @@ class Image {
 			}
 		} else {
 			exit('Error: Could not load image ' . $file . '!');
-		}
+		}*/
 	}
 
 	public function getFile() {

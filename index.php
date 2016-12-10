@@ -4,6 +4,8 @@ session_start();
 include ('system\system.php');
 include('config.php');
 require('system\upload.php');
+include ('system\imagem.php');
+
 include ('system\toolimage.php');
 
 require_once ('system\system.php');
@@ -14,6 +16,7 @@ require_once ('system\model.php');
 
 
 function __autoload($file){
+	print_r($file);
 	if (file_exists ($file . '.php'))
 		require_once ($file . '.php');
 	else 

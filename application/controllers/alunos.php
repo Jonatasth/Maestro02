@@ -13,12 +13,13 @@ class alunos extends \Controller{
 		//$data['alunos'] = $alunos_lista;
 		
 		
-		$alunos = new \application\models\alunos_model();
-		$alunos_lista = $alunosmodel->select();
+		$alunoModel = new \application\models\alunos_model();
+		$alunos_lista = $alunoModel->select();
 		$data['alunos'] = array();
 		foreach ($alunos_lista as $aluno){
-			$toolimage = new toolimage();
-			$toolimage->$file = $aluno['imagem'];
+			print_r($aluno);
+			$toolimage = new \toolimage();
+			$toolimage->file = $aluno['imagem'];
 			$aluno['imagem'] = $toolimage->resize('200','200'); //tamanho da imagem
 			$data['alunos'][]=$aluno;
 		}
