@@ -17,10 +17,13 @@ class alunos extends \Controller{
 		$alunos_lista = $alunoModel->select();
 		$data['alunos'] = array();
 		foreach ($alunos_lista as $aluno){
-			//print_r($aluno);
-			$toolimage = new \toolimage();
-			$toolimage->file = $aluno['imagem'];
-			$aluno['imagem'] = $toolimage->resize('200','200'); //tamanho da imagem
+			
+			if(isset($aluno['imagem']) and $aluno['imagem'] != ''){
+				$toolimage = new \toolimage();
+				$toolimage->file = $aluno['imagem'];
+				$aluno['imagem'] = $toolimage->resize('80','80'); //tamanho da imagem
+			}
+			
 			$data['alunos'][]=$aluno;
 		}
 		//**//
@@ -116,16 +119,20 @@ class alunos extends \Controller{
 		$data = $dados = $error = array();
 		
 		$alunosModel = new \application\models\alunos_model();
-		$data = $alunosModel->readById($id);
 		
-		//$professorModel = new \application\models\professor_model();
-		//$data['professores'] = $professorModel->read();
+		$alunoInfo = $alunosModel->readById($id);
 		
+		$toolimage = new \toolimage();
+		if ($alunoInfo['imagem'] != ''){
+			$toolimage->file = $alunoInfo['imagem'];
+		}else{
+			$toolimage->file = 'imagem/catalog/no_image.jpg';
+		}
+		$alunoInfo['imagem'] = $toolimage->resize(400,400);
 		
+		$data = $alunoInfo;
 		
-		if(isset($_POST['submit'])){
-				
-			
+		if(isset($_POST['submit'])){	
 			print_r($_POST);
 			$dados['nome'] = $_POST['nome'] ?? '';
 			$dados['email'] = $_POST['email'] ?? '';

@@ -16,7 +16,6 @@ require_once ('system\model.php');
 
 
 function __autoload($file){
-	print_r($file);
 	if (file_exists ($file . '.php'))
 		require_once ($file . '.php');
 	else 

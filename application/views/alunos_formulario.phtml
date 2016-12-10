@@ -1,8 +1,9 @@
  <div id="main" class="container-fluid">
   
   <h3 class="page-header">Adicionar Aluno</h3>
+  <img src="<?php echo $view_imagem; ?>" width="200" height="200"/> 	
   
-  <?php if(isset($view_error['warning'])){?>
+    <?php if(isset($view_error['warning'])){?>
   	<div><p><?php echo $view_error['warning']; ?></p></div>
   <?php } ?>
   	  	
@@ -62,7 +63,8 @@
 		<?php if(isset($view_imagem)){?>
 			<a href="<?php echo $view_imagem;?>" target="_blank">Visualizar Arquivo</a>
 			<input type="hidden" name="imagem_existe" value="<?php echo $view_imagem?>" />
-		<?php } ?>
+				
+				<?php } ?>
 		
 		<?php if(isset($view_error['imagem'])){?>
   	  		<span> <?php echo $view_error['imagem']; ?></span>

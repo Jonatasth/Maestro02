@@ -36,6 +36,32 @@ class Imagem {
 		}*/
 	}
 
+	public function setFile($file) {
+		$file = DIR_IMAGE.$file;
+		if (file_exists($file)) {
+			$this->file = $file;
+		
+			$info = getimagesize($file);
+		
+			$this->width  = $info[0];
+			$this->height = $info[1];
+			$this->bits = isset($info['bits']) ? $info['bits'] : '';
+			$this->mime = isset($info['mime']) ? $info['mime'] : '';
+		
+			if ($this->mime == 'image/gif') {
+				$this->image = imagecreatefromgif($file);
+			} elseif ($this->mime == 'image/png') {
+				$this->image = imagecreatefrompng($file);
+			} elseif ($this->mime == 'image/jpeg') {
+				$this->image = imagecreatefromjpeg($file);
+			}
+		} else {
+			exit('Error: Could not load image ' . $file . '!');
+		}
+		
+		
+	}
+	
 	public function getFile() {
 		return $this->file;
 	}
@@ -77,9 +103,10 @@ class Imagem {
 			imagedestroy($this->image);
 		}
 	}
-
+	
 
 	public function resize($width = 0, $height = 0, $default = '') {
+		
 		if (!$this->width || !$this->height) {
 			return;
 		}
