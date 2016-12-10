@@ -128,7 +128,7 @@ class alunos extends \Controller{
 		}else{
 			$toolimage->file = 'imagem/catalog/no_image.jpg';
 		}
-		$alunoInfo['imagem'] = $toolimage->resize(400,400);
+		$alunoInfo['imagem'] = $toolimage->resize('200','200');
 		
 		$data = $alunoInfo;
 		
