@@ -18,7 +18,7 @@ function Abrir($file = null)
 // abrindo um arquivo com tratamento de exceções
 try
 {
-	$arquivo = Abrir('/tmp/arquivo.dat');
+	$arquivo = Abrir('/tmp/arquivo.dat'); // quando estiver ok e tiver o arquivo: $arquivo = Abrir('readme.txt');
 	echo $arquivo;
 }
 // captura o erro
